@@ -20,6 +20,10 @@ async def command_image_handler(message: Message):
     await message.answer("Пока в доработке")
 
 @router.message(F.text == 'погода')
-async def command_weather_handler(message: Message, country="Трубчевск"):
+async def command_weather_handler(message: Message, country="Москва"):
     result = get_weather(country)
     await message.answer(result)
+
+@router.message(F.text == 'Добрый')
+async def command_weather_handler(message: Message, country="Москва"):
+    await message.answer("День добрым не бывает....")
